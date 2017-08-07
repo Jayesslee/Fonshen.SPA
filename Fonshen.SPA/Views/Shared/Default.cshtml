@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <script src="~/js/jquery-1.7.1.min.js"></script>
+    <script src="~/js/Basic.js?92"></script>    
+</head>
+<body>
+    <div id="header"></div>
+    <div id="menu">
+        <ul>
+            <li><a href="javascript:Page.Jump('/')">首页</a></li>
+            <li><a href="javascript:Page.Jump('/Home/About/1')">关于第1页</a></li>
+            <li><a href="javascript:Page.Jump('/Home/About/2')">关于第2页</a></li>
+            <li><a href="javascript:Page.Jump('/Home/Contact')">联系</a></li>
+        </ul>
+    </div>
+    <div id="content"></div>
+    <div id="footer"></div>
+    <script>
+        Page.Data = @Html.Raw(ViewData["Page.Data"]);
+    </script>
+</body>
+</html>
