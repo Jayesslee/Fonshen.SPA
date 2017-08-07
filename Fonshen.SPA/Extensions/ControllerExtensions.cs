@@ -5,7 +5,7 @@ namespace Fonshen.SPA.Extensions
 {
     public static class ControllerExtensions
     {
-        public static IActionResult Page(this Controller controller, object data)
+        public static IActionResult Page(this Controller controller, object data, string view = "Default")
         {
             if (controller.Request.Query["_by_ajax"] == "1")
             {
@@ -14,7 +14,7 @@ namespace Fonshen.SPA.Extensions
             else
             {
                 controller.ViewData["Page.Data"] = JsonConvert.SerializeObject(data);
-                return controller.View("Default");
+                return controller.View(view);
             }
         }
     }
