@@ -5,17 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot/css\font-awesome.min.css" />
     <Content Remove="wwwroot/js\Basic.js~RF15506056.TMP" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="wwwroot\js\Home.About.js" />
-    <Content Include="wwwroot\js\Home.Contact.js" />
+    <Content Include="wwwroot\css\Basic.css" />
+    <Content Include="wwwroot\css\Home\About.css" />
+    <Content Include="wwwroot\css\Home\Contact.css" />
+    <Content Include="wwwroot\css\Home\Index.css" />
     <Content Include="wwwroot\js\Home\About.js" />
     <Content Include="wwwroot\js\Home\Contact.js" />
-    <Content Include="wwwroot\js\Home\Home.About.js" />
-    <Content Include="wwwroot\js\Home\Home.Contact.js" />
-    <Content Include="wwwroot\js\Home\Home.Index.js" />
     <Content Include="wwwroot\js\Home\Index.js" />
   </ItemGroup>
   <ItemGroup>

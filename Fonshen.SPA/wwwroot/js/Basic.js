@@ -1,23 +1,32 @@
 ﻿/* ---- Page Class ---- */
 var Page = {
-    Load: function (path) {
-        if (!path) path = location.pathname;
-        if (path == "/") path = "/Home/Index";
-        var info = path.split("/");
-        var script = "/js/" + info[1] + "/" + info[2] + ".js";
+    Load: function () {
+        Page.Data = Page.Raw.data;
+        Page.LoadCss();
         $.ajax({
-            url: script, dataType: 'script', cache: true, success: function () {
+            url: Page.Raw.js, dataType: 'script', cache: true, success: function () {
                 Page.Render();
             }
         });
     },
     Jump: function (path, no_history) {
-        $.getJSON(path, { _by_ajax: 1 }, function (data) {
+        $.getJSON(path, { _by_ajax: 1 }, function (raw) {
             if (!no_history && path != Page.Path) window.history.pushState(null, null, path);
             Page.Path = path;
-            Page.Data = data;
-            Page.Load(path);
+            Page.Raw = raw;
+            Page.Load();
         });
+    },
+    LoadCss: function () {
+        var tag = document.getElementById("_load_css");
+        var head = document.getElementsByTagName("head").item(0);
+        if (tag) head.removeChild(tag);
+        var link = document.createElement("link");
+        link.href = Page.Raw.css;
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.id = "_load_css";
+        head.appendChild(link);
     }
 };
 
